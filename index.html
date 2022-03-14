@@ -1,85 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <title>Home</title>
-  
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
 
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/favicon.png" rel="apple-touch-icon">
+   <meta charset="utf-8">
+	<title>Home</title>
+	<meta name="description" content="Graadi's Homepage">
+	<meta name="author" content="Graadi">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="css/layout.css">
+   <link rel="stylesheet" href="css/media-queries.css">
+   <link rel="stylesheet" href="css/magnific-popup.css">
 
-  <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="shortcut icon" href="images/favicon.png" >
 
-  <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- Static navbar -->
-  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+   <header id="home">
+
+      <nav id="nav-wrap">
+
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+         <ul id="nav" class="nav">
+            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+	         <li><a class="smoothscroll" href="#resume">About</a></li>
+         </ul>
+
+      </nav>
+
+      <div class="row banner">
+         <div class="banner-text">
+            <h1 class="responsive-headline">Adrian Gramada</h1>
+            <h3>Software Engineer & DevOps enthusiast</h3>
+            <hr />
+            <ul class="social">
+               <li><a href="https://www.linkedin.com/in/graadi/"><i class="fa fa-linkedin"></i></a></li>
+               <li><a href="https://github.com/graadi"><i class="fa fa-github"></i></a></li>
+               <li><a href="https://twitter.com/graaadi"><i class="fa fa-twitter"></i></a></li>
+            </ul>
+         </div>
       </div>
 
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
-    </div>
-  </div>
+      <p class="scrolldown">
+         <a class="smoothscroll" href="#resume"><i class="icon-down-circle"></i></a>
+      </p>
 
-  <div id="headerwrap">
-    <div class="container">
+   </header>
+
+   <section id="resume">
+
+      <div class="row about work">
+
+         <div class="three columns header-col">
+            <h1><span>About Me</span></h1>
+         </div>
+
+         <div class="nine columns main-col">
+
+            <div class="row item">
+
+               <div class="twelve columns">
+
+                  <p>I am continuously exploring the JVM world, functional programming, modularity, scalability and maintainability.<br />
+                  I have a distinct ability to translate requirements into clean architectures resulting in concise and maintainable software.<br />
+                  Particularly interested in DevOps practices and automation through Jenkins declarative and scripted pipelines, containerization with Docker and deployment orchestration with Kubernetes.<br />
+                  Keen discoverer of the AWS and Azure cloud platforms, with an interest of integrating their services in Java based projects.</p>
+
+               </div>
+
+            </div>
+
+         </div>
+
+      </div>
+
+      <div class="row work">
+
+         <div class="three columns header-col">
+            <h1><span>Work Experience</span></h1>
+         </div>
+
+         <div class="nine columns main-col">
+
+            <div class="row item">
+
+               <div class="twelve columns">
+
+                  <h3><a href="https://dae.mn">Dae.mn</a></h3>
+                  <p class="info">Software Consultant <span>&bull;</span> <em class="date">July 2021 - Present</em></p>
+
+               </div>
+
+            </div>
+
+            <div class="row item">
+
+               <div class="twelve columns">
+
+                  <h3><a href="https://www.meganexus.com">Meganexus</a></h3>
+                  <p class="info">Software Engineer / Tech Lead <span>&bull;</span> <em class="date">August 2011 - July 2021</em></p>
+
+               </div>
+
+            </div>
+
+         </div>
+
+      </div>
+
+      <div class="row skill">
+
+         <div class="three columns header-col">
+            <h1><span>Programming</span></h1>
+         </div>
+
+         <div class="nine columns main-col">
+
+				<div class="bars">
+
+				   <ul class="skills">
+					   <li><span class="bar-expand java"></span><em>Java 8+</em></li>
+                  <li><span class="bar-expand spring"></span><em>Spring</em></li>
+						<li><span class="bar-expand jpa"></span><em>JPA / Hibernate</em></li>
+					</ul>
+
+				</div>
+
+			</div>
+
+      </div>
+
+      <div class="row skill">
+
+         <div class="three columns header-col">
+            <h1><span>DevOps</span></h1>
+         </div>
+
+         <div class="nine columns main-col">
+
+				<div class="bars">
+
+				   <ul class="skills">
+					   <li><span class="bar-expand jenkins"></span><em>Jenkins</em></li>
+                  <li><span class="bar-expand docker"></span><em>Docker</em></li>
+						<li><span class="bar-expand kubernetes"></span><em>Kubernetes</em></li>
+					</ul>
+
+				</div>
+
+			</div>
+
+      </div>
+   </section>
+
+   <footer>
+
       <div class="row">
-        <div class="col-lg-6 col-lg-offset-3">
-          <h1>ADRIAN GRAMADA</h1>
-          <h4>SOFTWARE ENGINEER & DEVOPS ENTHUSIAST</h4>
-        </div>
-      </div>
-    </div>
-    <!-- /container -->
-  </div>
 
-  <div id="social">
-    <div class="container">
-      <div class="row centered">
-        <div class="col-lg-4">
-          <a href="https://www.linkedin.com/in/graadi/" target="_blank"><i class="fa fa-linkedin"></i></a>
-        </div>
-        <div class="col-lg-4">
-          <a href="https://github.com/graadi" target="_blank"><i class="fa fa-github"></i></a>
-        </div>                
-        <div class="col-lg-4">
-          <a href="https://twitter.com/graaadi" target="_blank"><i class="fa fa-twitter"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
+         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
 
-  <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+      </div>
+
+   </footer>
+
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+
+   <script src="js/jquery.flexslider.js"></script>
+   <script src="js/waypoints.js"></script>
+   <script src="js/jquery.fittext.js"></script>
+   <script src="js/init.js"></script>
 
 </body>
+
 </html>
