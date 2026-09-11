@@ -1,186 +1,486 @@
 <!DOCTYPE html>
-
-<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
 
    <meta charset="utf-8">
-	<title>Home</title>
-	<meta name="description" content="Graadi's Homepage">
-	<meta name="author" content="Graadi">
+   <title>Adrian Gramada</title>
+   <meta name="description" content="Adrian Gramada — Senior Software Consultant, DevOps &amp; AI Enthusiast">
+   <meta name="author" content="Adrian Gramada">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&amp;display=swap" rel="stylesheet">
 
-   <link rel="stylesheet" href="css/default.css">
-	<link rel="stylesheet" href="css/layout.css">
-   <link rel="stylesheet" href="css/media-queries.css">
-   <link rel="stylesheet" href="css/magnific-popup.css">
-
-	<link rel="shortcut icon" href="images/favicon.png" >
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="shortcut icon" href="images/favicon.png">
 
 </head>
-
 <body>
 
-   <header id="home">
+   <div class="progress-bar" id="progress-bar"></div>
 
-      <nav id="nav-wrap">
+   <nav class="nav" id="nav">
+      <a class="nav-brand smoothscroll" href="#home" aria-label="Adrian Gramada — home">
+         <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+            <defs>
+               <linearGradient id="logo-grad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#11ABB0"/>
+                  <stop offset="1" stop-color="#F06000"/>
+               </linearGradient>
+            </defs>
+            <rect x="1.5" y="1.5" width="37" height="37" rx="11" transform="rotate(-6 20 20)" fill="url(#logo-grad)"/>
+            <path d="M13 27 L18.4 12.5 C18.9 11.2 20.7 11.2 21.2 12.5 L23.5 18.7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15.3 21.5 H21.2" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M27.8 15.6 C25.6 14.1 22.2 15 22.2 18.4 C22.2 21.9 25.4 23.6 27.8 22.2 V19.3 H25.6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+         </svg>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+         <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+         <li><a class="smoothscroll" href="#home" data-section="home">Home</a></li>
+         <li><a class="smoothscroll" href="#about" data-section="about">About</a></li>
+         <li><a class="smoothscroll" href="#timeline" data-section="timeline">Timeline</a></li>
+         <li><a class="smoothscroll" href="#skills" data-section="skills">Skills</a></li>
+      </ul>
+   </nav>
 
-         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+   <header id="home" class="hero">
+      <div class="hero-inner reveal">
+         <h1><span class="hero-lead">👋 Hi, I'm</span> Adrian Gramada</h1>
+         <p class="hero-tagline">Senior Software Consultant &middot; DevOps &amp; AI Enthusiast</p>
+         <p class="hero-location"><span class="flag">🇬🇧</span> United Kingdom</p>
 
-         <ul id="nav" class="nav">
-            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
-	         <li><a class="smoothscroll" href="#resume">About</a></li>
+         <ul class="social">
+            <li>
+               <a href="https://www.linkedin.com/in/graadi/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+               </a>
+            </li>
+            <li>
+               <a href="https://github.com/graadi" target="_blank" rel="noopener" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+               </a>
+            </li>
          </ul>
-
-      </nav>
-
-      <div class="row banner">
-         <div class="banner-text">
-            <h1 class="responsive-headline">Adrian Gramada</h1>
-            <h3>Software Engineer & DevOps Enthusiast</h3>
-            <hr />
-            
-            <ul class="social">
-               <li><a href="https://www.linkedin.com/in/graadi/"><i class="fa fa-linkedin"></i></a></li>
-               <li><a href="https://github.com/graadi"><i class="fa fa-github"></i></a></li>
-               <li><a href="https://twitter.com/graaadi"><i class="fa fa-twitter"></i></a></li>
-            </ul>
-         </div>
       </div>
 
-      <p class="scrolldown">
-         <a class="smoothscroll" href="#resume"><i class="icon-down-circle"></i></a>
-      </p>
-
+      <a class="scroll-cue smoothscroll" href="#about" aria-label="Scroll down">
+         <span>Scroll</span>
+         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg>
+      </a>
    </header>
 
-   <section id="resume">
+   <section id="about" class="section section-light section-wide">
+      <div class="section-inner">
+         <h2 class="reveal">🙋 About Me</h2>
 
-      <div class="row about work">
-
-         <div class="three columns header-col">
-            <h1><span>About Me</span></h1>
+         <div class="about-lead reveal">
+            <p>I'm a software engineer with over a decade of experience across the industry, currently a Senior
+               Software Consultant at Daemon working on a long-term digital transformation programme for a major UK
+               government body. I specialise in translating complex requirements into clean, maintainable
+               architectures within the JVM ecosystem, and I enjoy exploring how AI is reshaping everyday
+               engineering — from the first line of code to the way teams and departments work together.</p>
          </div>
 
-         <div class="nine columns main-col">
-
-            <div class="row item">
-
-               <div class="twelve columns">
-
-                  <p>I am continuously exploring the JVM world, functional programming, modularity, scalability and maintainability.<br />
-                  I have a distinct ability to translate requirements into clean architectures resulting in concise and maintainable software.<br />
-                  Particularly interested in DevOps practices and automation through Jenkins declarative and scripted pipelines, containerization with Docker and deployment orchestration with Kubernetes.<br />
-                  Keen discoverer of the AWS and Azure cloud platforms, with an interest of integrating their services in Java based projects.</p>
-
-               </div>
-
+         <div class="about-grid reveal">
+            <div class="about-col">
+               <h3>💻 Programming</h3>
+               <ul>
+                  <li>Java 8+</li>
+                  <li>Spring</li>
+                  <li>JPA / Hibernate</li>
+                  <li>JUnit / Mockito</li>
+                  <li>SQL &amp; NoSQL</li>
+               </ul>
             </div>
-
-         </div>
-
-      </div>
-
-      <div class="row work">
-
-         <div class="three columns header-col">
-            <h1><span>Work Experience</span></h1>
-         </div>
-
-         <div class="nine columns main-col">
-
-            <div class="row item">
-
-               <div class="twelve columns">
-
-                  <h3><a href="https://dae.mn">Daemon Solutions</a></h3>
-                  <p class="info">Software Consultant <span>&bull;</span> <em class="date">July 2021 - Present</em></p>
-
-               </div>
-
+            <div class="about-col">
+               <h3>♾️ DevOps</h3>
+               <ul>
+                  <li>Jenkins Pipelines</li>
+                  <li>SonarQube</li>
+                  <li>Sonatype Nexus</li>
+                  <li>Docker &amp; Kubernetes</li>
+                  <li>Bash &amp; Azure CLI</li>
+               </ul>
             </div>
-
-            <div class="row item">
-
-               <div class="twelve columns">
-
-                  <h3><a href="https://www.meganexus.com">Meganexus</a></h3>
-                  <p class="info">Software Engineer / Tech Lead <span>&bull;</span> <em class="date">August 2011 - July 2021</em></p>
-
-               </div>
-
+            <div class="about-col">
+               <h3>🤝 Leadership</h3>
+               <ul>
+                  <li>Clear Communication</li>
+                  <li>Accountability</li>
+                  <li>Integrity &amp; Empathy</li>
+                  <li>Mentoring</li>
+                  <li>Autonomy</li>
+               </ul>
             </div>
-
          </div>
 
-      </div>
-
-      <div class="row skill">
-
-         <div class="three columns header-col">
-            <h1><span>Programming</span></h1>
+         <div class="credentials-bar reveal">
+            <div class="credential">
+               <span class="credential-icon">☁️</span>
+               <div>
+                  <p class="credential-title">AWS Accredited Partner</p>
+                  <p class="credential-sub">Technical Accreditation</p>
+               </div>
+            </div>
+            <div class="credential">
+               <span class="credential-icon">🌍</span>
+               <div>
+                  <p class="credential-title">EN &middot; RO &middot; FR</p>
+                  <p class="credential-sub">Native &middot; Native &middot; Working proficiency</p>
+               </div>
+            </div>
+            <div class="credential">
+               <span class="credential-icon">🔏</span>
+               <div>
+                  <p class="credential-title">Government-Vetted</p>
+                  <p class="credential-sub">Trusted on sensitive public-sector programmes</p>
+               </div>
+            </div>
          </div>
 
-         <div class="nine columns main-col">
-
-				<div class="bars">
-
-				   <ul class="skills">
-					   <li><span class="bar-expand java"></span><em>Java 8+</em></li>
-                  <li><span class="bar-expand spring"></span><em>Spring</em></li>
-						<li><span class="bar-expand jpa"></span><em>JPA / Hibernate</em></li>
-					</ul>
-
-				</div>
-
-			</div>
-
-      </div>
-
-      <div class="row skill">
-
-         <div class="three columns header-col">
-            <h1><span>DevOps</span></h1>
-         </div>
-
-         <div class="nine columns main-col">
-
-				<div class="bars">
-
-				   <ul class="skills">
-					   <li><span class="bar-expand jenkins"></span><em>Jenkins</em></li>
-                  <li><span class="bar-expand docker"></span><em>Docker</em></li>
-						<li><span class="bar-expand kubernetes"></span><em>Kubernetes</em></li>
-					</ul>
-
-				</div>
-
-			</div>
-
+         <a class="section-next smoothscroll" href="#timeline" aria-label="Next: Career Timeline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg>
+         </a>
       </div>
    </section>
 
-   <footer>
+   <section id="timeline" class="section section-muted">
+      <div class="section-inner">
+         <h2 class="reveal">🧭 Career Timeline</h2>
 
-      <div class="row">
+         <ol class="timeline">
 
-         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
+            <li class="timeline-item reveal">
+               <div class="timeline-marker">🎓</div>
+               <div class="timeline-card">
+                  <p class="timeline-date">2000 &ndash; 2005</p>
+                  <h3>BSc, Information Technology &amp; Computer Science</h3>
+                  <p class="timeline-org">Ștefan cel Mare University of Suceava</p>
+               </div>
+            </li>
 
+            <li class="timeline-item reveal">
+               <div class="timeline-marker">🛠️</div>
+               <div class="timeline-card">
+                  <p class="timeline-date">2006 &ndash; 2007</p>
+                  <h3>Technical Support Engineer</h3>
+                  <p class="timeline-org">NetPoint &middot; Bucharest, Romania</p>
+                  <p>B2B telecom and VoIP solutions provider, as part of a five-engineer software support team.</p>
+                  <ul class="timeline-list">
+                     <li>New modules and features for the intranet platform and the customer billing system</li>
+                     <li>Software tools to generate a wide range of reports for sales and financial departments</li>
+                     <li>Web-based user interfaces to support the fax2email and voice2email services</li>
+                  </ul>
+               </div>
+            </li>
+
+            <li class="timeline-item reveal">
+               <div class="timeline-marker">💻</div>
+               <div class="timeline-card">
+                  <p class="timeline-date">2008 &ndash; 2011</p>
+                  <h3>Software Engineer (Java/J2EE)</h3>
+                  <p class="timeline-org">Radcom &middot; Bucharest, Romania</p>
+                  <p>Part of a polyglot team designing and developing WAP and web services for Orange Romania.</p>
+                  <ul class="timeline-list">
+                     <li>WAP portal applications such as job boards, news readers, weather forecasts and e-magazines</li>
+                     <li>Web-based projects such as multimedia content upload and a content post-processor, using
+                        the Java web stack, Apache Struts, and XML processing with XSLT and XPath</li>
+                     <li>Refactoring to optimise performance and promote components' reusability and scalability</li>
+                  </ul>
+               </div>
+            </li>
+
+            <li class="timeline-item reveal">
+               <div class="timeline-marker">⚙️</div>
+               <div class="timeline-card">
+                  <p class="timeline-date">2011 &ndash; 2015</p>
+                  <h3>Software Engineer (Java/J2EE)</h3>
+                  <p class="timeline-org"><img class="org-logo" src="images/logos/meganexus.png" alt="" loading="lazy"> MegaNexus &middot; London, UK</p>
+                  <p>Part of the product back-end team, developing, debugging and refactoring the company's
+                     multi-tenant, web-based platform for public-sector clients including the NHS and several UK
+                     city councils.</p>
+                  <ul class="timeline-list">
+                     <li>Development of web-based software modules using Spring MVC</li>
+                     <li>Reusable data access layer components using JPA and Hibernate, native SQL, HQL, the
+                        Criteria API and stored procedures</li>
+                     <li>Unit tests using JUnit, Mockito and PowerMock, plus integration testing suites</li>
+                     <li>Contributed to the platform's data warehouse and ETL tools</li>
+                  </ul>
+               </div>
+            </li>
+
+            <li class="timeline-item reveal">
+               <div class="timeline-marker">🚀</div>
+               <div class="timeline-card">
+                  <p class="timeline-date">2015 &ndash; 2018</p>
+                  <h3>Senior Software Engineer (Java/J2EE)</h3>
+                  <p class="timeline-org"><img class="org-logo" src="images/logos/meganexus.png" alt="" loading="lazy"> MegaNexus &middot; London, UK</p>
+                  <p>Part of the platform's core development team, contributing to the technical design of core
+                     components and internal frameworks, and mentoring junior engineers across the R&amp;D team.</p>
+                  <ul class="timeline-list">
+                     <li>Developed internal tools and frameworks with a focus on performance and reusability</li>
+                     <li>Built a new product with a distributed, loosely coupled approach: Spring Boot REST APIs,
+                        inter-service communication with RabbitMQ, and data persistence with MongoDB</li>
+                     <li>Applied continuous refactoring techniques, unit tests and integration testing suites</li>
+                     <li>Implementation of complex data models and business workflows</li>
+                     <li>Performance optimisation through caching, database query tuning and JVM profilers</li>
+                  </ul>
+               </div>
+            </li>
+
+            <li class="timeline-item reveal">
+               <div class="timeline-marker">🧭</div>
+               <div class="timeline-card">
+                  <p class="timeline-date">2018 &ndash; 2021</p>
+                  <h3>Technical Lead</h3>
+                  <p class="timeline-org"><img class="org-logo" src="images/logos/meganexus.png" alt="" loading="lazy"> MegaNexus &middot; London, UK</p>
+                  <p>Software engineering department leadership, responsible for hiring, mentoring and driving the
+                     research and software development lifecycle. Technical leader of an onshore team of four
+                     developers and four offshore teams totalling fifteen developers.</p>
+                  <ul class="timeline-list">
+                     <li>Promoted team leaders for the offshore teams to make them self-organised and
+                        cross-functional</li>
+                     <li>Mentored developers through pair programming sessions and group code reviews, promoting
+                        clean code principles</li>
+                     <li>Followed servant leadership principles for a positive influence on the team's success</li>
+                     <li>Bridged the gap between the technology and business departments</li>
+                     <li>Brought development and operations together through a DevOps culture, and took the
+                        initiative to build CI/CD pipelines automating build, test and deployment</li>
+                     <li>Worked closely with the Solution Architect to ensure systems' scalability and
+                        maintainability</li>
+                     <li>Developed microservices and REST APIs using Java, Spring Boot, MVC, Data and Cloud
+                        frameworks, and Azure managed services</li>
+                  </ul>
+                  <div class="timeline-achievements">
+                     <p class="label">🏆 Achievements</p>
+                     <ul class="timeline-list">
+                        <li>Grew five autonomous, self-organised teams performing to clean code principles and
+                           continuous refactoring techniques</li>
+                        <li>Key role in the design, development and release of two projects, and a full rewrite of
+                           the company's main product, deployed across all HM Prison and Probation Services</li>
+                        <li>Implemented DevOps practices enabling 100+ daily automated deployments across staging
+                           and production environments</li>
+                     </ul>
+                  </div>
+               </div>
+            </li>
+
+            <li class="timeline-item timeline-current reveal">
+               <div class="timeline-marker">🌐</div>
+               <div class="timeline-card">
+                  <p class="timeline-date">2021 &ndash; Present</p>
+                  <h3>Senior Software Consultant</h3>
+                  <p class="timeline-org"><img class="org-logo" src="images/logos/daemon.png" alt="" loading="lazy"> Daemon &middot; London, UK</p>
+                  <p>Working within the JVM ecosystem — Spring, Spring Cloud, Apache Camel and AWS — on a long-term
+                     digital transformation programme for a major government body.</p>
+               </div>
+            </li>
+
+         </ol>
+
+         <a class="section-next smoothscroll" href="#skills" aria-label="Next: Skills">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg>
+         </a>
       </div>
+   </section>
 
+   <section id="skills" class="section section-dark section-wide">
+      <div class="section-inner">
+         <h2 class="reveal">🛠️ Skills</h2>
+
+         <div class="skills-grid">
+
+            <div class="skill-card reveal">
+               <div class="skill-card-header">
+                  <span class="skill-icon">💻</span>
+                  <h3>Programming</h3>
+               </div>
+               <ul class="skill-tags">
+                  <li>☕ Java 8 &amp; 11</li>
+                  <li>🎼 Groovy</li>
+                  <li>📜 JavaScript</li>
+                  <li>🔷 TypeScript</li>
+                  <li>🧩 OOP</li>
+                  <li>🏛️ SOLID Principles</li>
+                  <li>🧼 Clean Code</li>
+                  <li>🗺️ Design Patterns</li>
+               </ul>
+            </div>
+
+            <div class="skill-card reveal">
+               <div class="skill-card-header">
+                  <span class="skill-icon">🧱</span>
+                  <h3>Backend</h3>
+               </div>
+               <ul class="skill-tags">
+                  <li>🍃 Spring Core, Boot, Data, MVC, Batch</li>
+                  <li>🗄️ JPA / Hibernate</li>
+                  <li>📄 JSP &amp; JSTL</li>
+                  <li>🔌 Servlets</li>
+                  <li>🔗 REST</li>
+                  <li>📦 Maven</li>
+               </ul>
+            </div>
+
+            <div class="skill-card reveal">
+               <div class="skill-card-header">
+                  <span class="skill-icon">🕸️</span>
+                  <h3>Microservices</h3>
+               </div>
+               <ul class="skill-tags">
+                  <li>☁️ Spring Cloud</li>
+                  <li>🐰 RabbitMQ</li>
+                  <li>📡 Azure Event Hub</li>
+                  <li>🔍 Elasticsearch</li>
+                  <li>⚡ Azure Functions</li>
+               </ul>
+            </div>
+
+            <div class="skill-card reveal">
+               <div class="skill-card-header">
+                  <span class="skill-icon">✅</span>
+                  <h3>Testing</h3>
+               </div>
+               <ul class="skill-tags">
+                  <li>✅ JUnit</li>
+                  <li>🎭 Mockito</li>
+                  <li>🐹 Hamcrest</li>
+                  <li>💪 PowerMock</li>
+                  <li>🧪 EasyMock</li>
+                  <li>🕸️ WireMock</li>
+                  <li>📋 REST-Assured</li>
+               </ul>
+            </div>
+
+            <div class="skill-card reveal">
+               <div class="skill-card-header">
+                  <span class="skill-icon">🗄️</span>
+                  <h3>Persistence</h3>
+               </div>
+               <ul class="skill-tags">
+                  <li>🐬 MySQL</li>
+                  <li>🗃️ MS-SQL</li>
+                  <li>🌱 MongoDB</li>
+                  <li>🔴 Redis</li>
+                  <li>💾 Azure Storage</li>
+                  <li>2️⃣ H2</li>
+                  <li>🗂️ HSQLDB</li>
+               </ul>
+            </div>
+
+            <div class="skill-card reveal">
+               <div class="skill-card-header">
+                  <span class="skill-icon">🔄</span>
+                  <h3>Data Interchange</h3>
+               </div>
+               <ul class="skill-tags">
+                  <li>📊 CSV</li>
+                  <li>📰 XML</li>
+                  <li>🧾 JSON</li>
+                  <li>🧬 BSON</li>
+                  <li>🎛️ XSL</li>
+                  <li>🧭 XPath</li>
+                  <li>🔧 JQ</li>
+                  <li>🧵 Jackson</li>
+               </ul>
+            </div>
+
+            <div class="skill-card reveal">
+               <div class="skill-card-header">
+                  <span class="skill-icon">🎨</span>
+                  <h3>Frontend</h3>
+               </div>
+               <ul class="skill-tags">
+                  <li>🌐 HTML</li>
+                  <li>🎨 CSS</li>
+                  <li>🅰️ Angular 8</li>
+                  <li>🟢 Node.js</li>
+               </ul>
+            </div>
+
+            <div class="skill-card reveal">
+               <div class="skill-card-header">
+                  <span class="skill-icon">♾️</span>
+                  <h3>DevOps</h3>
+               </div>
+               <ul class="skill-tags">
+                  <li>🎩 Jenkins</li>
+                  <li>🔁 CI/CD Pipelines</li>
+                  <li>🔎 SonarQube</li>
+                  <li>📦 Sonatype Nexus</li>
+                  <li>🐳 Docker</li>
+                  <li>⎈ Kubernetes</li>
+                  <li>🚀 Spinnaker</li>
+                  <li>🖥️ Azure CLI</li>
+                  <li>🌤️ Azure Web Apps</li>
+                  <li>💻 Azure VMs</li>
+                  <li>💲 Bash / Unix</li>
+                  <li>🐱 Tomcat</li>
+                  <li>🟩 Nginx</li>
+                  <li>🔀 Git</li>
+               </ul>
+            </div>
+
+            <div class="skill-card reveal">
+               <div class="skill-card-header">
+                  <span class="skill-icon">📋</span>
+                  <h3>Agile</h3>
+               </div>
+               <ul class="skill-tags">
+                  <li>🏉 Scrum</li>
+                  <li>📌 Kanban</li>
+                  <li>🧷 Jira</li>
+                  <li>📚 Confluence</li>
+               </ul>
+            </div>
+
+            <div class="skill-card skill-card-wide reveal">
+               <div class="skill-card-header">
+                  <span class="skill-icon">🧠</span>
+                  <h3>Social Skills</h3>
+               </div>
+               <ul class="skill-notes">
+                  <li>High capacity for analysing and evaluating information, with a problem-solving attitude</li>
+                  <li>Organised, responsible, with self-respect and self-reliance</li>
+                  <li>Strong values of fairness, equity and dignity</li>
+                  <li>Ability to build good working relationships with people of different national and cultural
+                     backgrounds</li>
+               </ul>
+            </div>
+
+         </div>
+
+         <a class="section-next smoothscroll" href="#footer" aria-label="Next: Footer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg>
+         </a>
+      </div>
+   </section>
+
+   <footer class="footer" id="footer">
+      <div class="footer-inner">
+         <ul class="social social-footer">
+            <li>
+               <a href="https://www.linkedin.com/in/graadi/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+               </a>
+            </li>
+            <li>
+               <a href="https://github.com/graadi" target="_blank" rel="noopener" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+               </a>
+            </li>
+         </ul>
+         <a class="go-top smoothscroll" href="#home" aria-label="Back to top">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20V4m0 0l-6 6m6-6l6 6"/></svg>
+         </a>
+         <p class="footer-note">&copy; 2026 Adrian Gramada</p>
+      </div>
    </footer>
 
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
-   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-   <script src="js/jquery.flexslider.js"></script>
-   <script src="js/waypoints.js"></script>
-   <script src="js/jquery.fittext.js"></script>
-   <script src="js/init.js"></script>
+   <script src="js/main.js"></script>
 
 </body>
-
 </html>
