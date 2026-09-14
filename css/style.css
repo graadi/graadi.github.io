@@ -365,7 +365,15 @@ img { max-width: 100%; }
    display: inline-block;
 }
 
-.about-col ul { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.about-col ul {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   width: fit-content;
+   margin: 0 auto;
+   gap: 10px;
+   text-align: left;
+}
 .about-col li {
    display: inline-flex;
    align-items: center;
