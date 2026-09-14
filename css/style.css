@@ -674,6 +674,12 @@ img { max-width: 100%; }
       grid-template-columns: 1fr;
       gap: 28px;
    }
+   .about-col {
+      text-align: left;
+   }
+   .about-col-inner {
+      display: block;
+   }
    .credentials-bar {
       flex-direction: column;
    }
