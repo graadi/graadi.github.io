@@ -1,6 +1,10 @@
 (function () {
    "use strict";
 
+   if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+   }
+
    var nav = document.getElementById("nav");
    var navToggle = document.getElementById("nav-toggle");
    var navLinks = document.getElementById("nav-links");
