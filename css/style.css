@@ -500,6 +500,10 @@ img { max-width: 100%; }
    margin-bottom: 0;
 }
 
+.timeline-card p:not(.timeline-date):not(.timeline-org) + p {
+   margin-top: 12px;
+}
+
 .timeline-list {
    margin-top: 12px;
    display: flex;
