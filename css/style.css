@@ -677,18 +677,74 @@ img { max-width: 100%; }
 /* Skills                                                              */
 /* ------------------------------------------------------------------ */
 
+/* "Workbench": back to the dark of the hero, with the same teal/orange glows
+   and a whisper of the dot grid, plus faint circuit-board traces running in
+   from the margins (a nod to the 🛠️ heading). Darkens towards the bottom so
+   it settles seamlessly into the near-black footer. */
+#skills {
+   position: relative;
+   isolation: isolate;
+   overflow: hidden;
+   background:
+      radial-gradient(ellipse 55% 30% at 50% 0%, rgba(17,171,176,.12), transparent 70%),
+      radial-gradient(ellipse 45% 35% at 100% 35%, rgba(240,96,0,.08), transparent 70%),
+      radial-gradient(ellipse 45% 35% at 0% 80%, rgba(17,171,176,.08), transparent 70%),
+      radial-gradient(rgba(255,255,255,.045) 1px, transparent 1.5px) 0 0 / 32px 32px,
+      linear-gradient(180deg, var(--navy) 0%, #0F1C2E 70%, var(--near-black) 100%);
+}
+
+/* Circuit traces: top-left, entering from the left edge */
+#skills::before,
+#skills::after {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   pointer-events: none;
+   width: 560px;
+   height: 560px;
+   background: url("../images/circuit.svg") no-repeat 0 0 / contain;
+   opacity: .28;
+}
+#skills::before {
+   top: 40px;
+   left: -60px;
+}
+/* …and bottom-right, the same board rotated to enter from the right edge */
+#skills::after {
+   bottom: 30px;
+   right: -60px;
+   transform: rotate(180deg);
+   opacity: .22;
+}
+
 .skills-grid {
    columns: 3 250px;
    column-gap: 22px;
 }
 
 .skill-card {
-   background: rgba(255,255,255,.04);
+   background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
    border: 1px solid rgba(255,255,255,.09);
    border-radius: 16px;
    padding: 22px;
    break-inside: avoid;
    margin-bottom: 22px;
+   box-shadow: 0 18px 40px -28px rgba(0,0,0,.8);
+   -webkit-backdrop-filter: blur(6px);
+           backdrop-filter: blur(6px);
+}
+/* Keep the reveal fade, and add a gentle lift + teal edge on hover */
+.skill-card.reveal {
+   transition: opacity .6s ease, transform .6s ease, border-color .25s ease, background .25s ease;
+}
+.skill-card.in-view:hover {
+   transform: translateY(-3px);
+   border-color: rgba(17,171,176,.38);
+   background: linear-gradient(160deg, rgba(17,171,176,.09), rgba(255,255,255,.03));
+}
+@media (prefers-reduced-motion: reduce) {
+   .skill-card.reveal { transition: none; }
+   .skill-card.in-view:hover { transform: none; }
 }
 
 .skill-card-header {
@@ -710,7 +766,8 @@ img { max-width: 100%; }
    width: 34px;
    height: 34px;
    border-radius: 10px;
-   background: rgba(240,96,0,.16);
+   background: linear-gradient(135deg, rgba(17,171,176,.22), rgba(240,96,0,.2));
+   box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
    display: flex;
    align-items: center;
    justify-content: center;
@@ -856,6 +913,15 @@ img { max-width: 100%; }
       background-position: left -200px top 40px, right -220px bottom 20px;
       background-size: 400px auto, 460px auto;
    }
+
+   #skills::before,
+   #skills::after {
+      width: 360px;
+      height: 360px;
+      opacity: .16;
+   }
+   #skills::before { left: -120px; top: 20px; }
+   #skills::after  { right: -120px; bottom: 20px; }
 
    .timeline { padding-left: 46px; }
    .timeline::before { left: 17px; }

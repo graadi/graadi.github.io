@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<g stroke="#11ABB0" stroke-opacity=".55" stroke-width="1.4">
+<path d="M0 70 H190 L230 110 H350"/>
+<path d="M0 130 H120 L160 170 H260 L300 210 V320"/>
+<path d="M0 190 H70 L110 230 V380 L150 420 H290"/>
+<path d="M0 250 H40 L70 280 V470"/>
+<path d="M0 320 H20 L40 340 V540 L80 580 H200"/>
+<path d="M90 0 V30 L120 60 H430 L470 100 V160"/>
+<path d="M190 0 V20 L210 40 H520"/>
+<path d="M160 170 V130 L180 110"/>
+<path d="M300 260 H400 L440 300 V360"/>
+<path d="M110 300 H200 L230 330 V360"/>
+</g>
+<g stroke="#11ABB0" stroke-opacity=".7" stroke-width="1.4" fill="#0B2444">
+<circle cx="350" cy="110" r="5"/>
+<circle cx="300" cy="320" r="5"/>
+<circle cx="290" cy="420" r="5"/>
+<circle cx="70" cy="470" r="5"/>
+<circle cx="200" cy="580" r="5"/>
+<circle cx="470" cy="160" r="5"/>
+<circle cx="520" cy="40" r="5"/>
+<circle cx="180" cy="110" r="3.5"/>
+<circle cx="440" cy="360" r="5"/>
+<circle cx="230" cy="360" r="3.5"/>
+</g>
+<g fill="#11ABB0" fill-opacity=".45">
+<circle cx="300" cy="260" r="2.5"/>
+<circle cx="110" cy="300" r="2.5"/>
+<circle cx="260" cy="170" r="2.5"/>
+</g>
+<circle cx="300" cy="320" r="2.5" fill="#F06000"/>
+<circle cx="520" cy="40" r="2.5" fill="#F06000"/>
+</svg>
