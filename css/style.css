@@ -520,10 +520,49 @@ img { max-width: 100%; }
 /* Timeline                                                            */
 /* ------------------------------------------------------------------ */
 
+/* "Journey map": picks up the off-white where About fades out, adds faint
+   topographic contours in the margins (a nod to the 🧭 heading), and cools
+   gradually towards the bottom so the step into the dark Skills section
+   feels intentional rather than abrupt. */
+#timeline {
+   position: relative;
+   isolation: isolate;
+   overflow: hidden;
+   background:
+      radial-gradient(ellipse 50% 35% at 0% 30%, rgba(240,96,0,.045), transparent 70%),
+      radial-gradient(ellipse 55% 35% at 100% 75%, rgba(17,171,176,.07), transparent 70%),
+      linear-gradient(180deg, var(--off-white) 0%, #F5F7FA 55%, #E9EEF4 100%);
+}
+
+/* Contour lines: top-left and bottom-right, kept mostly in the side margins */
+#timeline::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   z-index: -1;
+   pointer-events: none;
+   background:
+      url("../images/contours.svg") no-repeat left -180px top 60px / 560px auto,
+      url("../images/contours.svg") no-repeat right -220px bottom 40px / 680px auto;
+   opacity: .32;
+}
+
+/* Seam into Skills: the same teal → orange line used at the top of About */
+#timeline::after {
+   content: "";
+   position: absolute;
+   bottom: 0; left: 0; right: 0;
+   height: 3px;
+   z-index: -1;
+   background: linear-gradient(90deg, transparent, var(--teal) 25%, var(--accent) 75%, transparent);
+   opacity: .55;
+}
+
 .timeline {
    position: relative;
    padding-left: 56px;
 }
+/* The trail: starts orange at the current role, cools to teal, fades into the past */
 .timeline::before {
    content: "";
    position: absolute;
@@ -531,7 +570,8 @@ img { max-width: 100%; }
    top: 6px;
    bottom: 6px;
    width: 2px;
-   background: var(--border);
+   border-radius: 2px;
+   background: linear-gradient(180deg, var(--accent) 0%, var(--teal) 30%, rgba(17,171,176,.35) 75%, var(--border) 100%);
 }
 
 .timeline-item {
@@ -810,6 +850,12 @@ img { max-width: 100%; }
    .nav-toggle { display: flex; }
 
    .section { padding: 80px 6%; }
+
+   #timeline::before {
+      opacity: .2;
+      background-position: left -200px top 40px, right -220px bottom 20px;
+      background-size: 400px auto, 460px auto;
+   }
 
    .timeline { padding-left: 46px; }
    .timeline::before { left: 17px; }
