@@ -181,6 +181,49 @@ img { max-width: 100%; }
       linear-gradient(160deg, var(--near-black), var(--navy));
    color: var(--white);
    position: relative;
+   overflow: hidden;
+   isolation: isolate;
+}
+
+/* Graphic layer 1: faint engineering grid + dots, fading out towards the edges */
+.hero::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   z-index: -1;
+   background-image:
+      radial-gradient(rgba(255,255,255,.14) 1px, transparent 1.5px),
+      linear-gradient(rgba(17,171,176,.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17,171,176,.07) 1px, transparent 1px);
+   background-size: 32px 32px, 128px 128px, 128px 128px;
+   background-position: 0 0, -1px -1px, -1px -1px;
+   -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, #000 20%, transparent 80%);
+           mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, #000 20%, transparent 80%);
+}
+
+/* Graphic layer 2: network constellations in the corners + slowly drifting glows */
+.hero::after {
+   content: "";
+   position: absolute;
+   inset: -10%;
+   z-index: -1;
+   pointer-events: none;
+   background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg stroke='%2311ABB0' stroke-opacity='.35' stroke-width='1' fill='none'%3E%3Cpath d='M40 60L140 30L230 90L330 50M140 30L120 150L230 90L260 200L360 170M120 150L60 240L170 270L260 200M170 270L150 360L280 330L260 200M330 50L360 170'/%3E%3C/g%3E%3Cg fill='%2311ABB0'%3E%3Ccircle cx='40' cy='60' r='3'/%3E%3Ccircle cx='140' cy='30' r='4'/%3E%3Ccircle cx='230' cy='90' r='3'/%3E%3Ccircle cx='330' cy='50' r='3'/%3E%3Ccircle cx='120' cy='150' r='3'/%3E%3Ccircle cx='260' cy='200' r='4'/%3E%3Ccircle cx='360' cy='170' r='3'/%3E%3Ccircle cx='60' cy='240' r='3'/%3E%3Ccircle cx='170' cy='270' r='3'/%3E%3Ccircle cx='150' cy='360' r='3'/%3E%3C/g%3E%3Ccircle cx='280' cy='330' r='4' fill='%23F06000'/%3E%3C/svg%3E") no-repeat right 8% top 20% / min(40vw, 440px) auto,
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg stroke='%2311ABB0' stroke-opacity='.35' stroke-width='1' fill='none'%3E%3Cpath d='M40 60L140 30L230 90L330 50M140 30L120 150L230 90L260 200L360 170M120 150L60 240L170 270L260 200M170 270L150 360L280 330L260 200M330 50L360 170'/%3E%3C/g%3E%3Cg fill='%2311ABB0'%3E%3Ccircle cx='40' cy='60' r='3'/%3E%3Ccircle cx='140' cy='30' r='4'/%3E%3Ccircle cx='230' cy='90' r='3'/%3E%3Ccircle cx='330' cy='50' r='3'/%3E%3Ccircle cx='120' cy='150' r='3'/%3E%3Ccircle cx='260' cy='200' r='4'/%3E%3Ccircle cx='360' cy='170' r='3'/%3E%3Ccircle cx='60' cy='240' r='3'/%3E%3Ccircle cx='170' cy='270' r='3'/%3E%3Ccircle cx='150' cy='360' r='3'/%3E%3C/g%3E%3Ccircle cx='280' cy='330' r='4' fill='%23F06000'/%3E%3C/svg%3E") no-repeat left 6% bottom 10% / min(34vw, 360px) auto,
+      radial-gradient(circle at 30% 35%, rgba(17,171,176,.16), transparent 35%),
+      radial-gradient(circle at 70% 70%, rgba(240,96,0,.10), transparent 35%);
+   opacity: .55;
+   animation: hero-drift 24s ease-in-out infinite alternate;
+}
+
+@keyframes hero-drift {
+   from { transform: translate3d(0, 0, 0); }
+   to   { transform: translate3d(-2%, 2%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .hero::after { animation: none; }
 }
 
 .hero-inner { max-width: 640px; }
