@@ -815,6 +815,233 @@ img { max-width: 100%; }
 }
 
 /* ------------------------------------------------------------------ */
+/* Projects                                                            */
+/* ------------------------------------------------------------------ */
+
+/* "Showcase": steps back into daylight after the dark Skills workbench,
+   mirroring About (same seam, glows and dot grid, glows flipped to the
+   opposite corners) so the page reads light → dark → light → dark. */
+#projects {
+   position: relative;
+   isolation: isolate;
+   overflow: hidden;
+   background:
+      radial-gradient(ellipse 55% 40% at 90% 0%, rgba(17,171,176,.10), transparent 70%),
+      radial-gradient(ellipse 50% 40% at 6% 10%, rgba(240,96,0,.06), transparent 70%),
+      radial-gradient(ellipse 45% 30% at 0% 85%, rgba(17,171,176,.06), transparent 70%),
+      linear-gradient(180deg, #EEF3F7 0%, #F7F9FB 40%, var(--off-white) 100%);
+}
+
+/* Seam: the teal → orange line, as at the top of About */
+#projects::before {
+   content: "";
+   position: absolute;
+   top: 0; left: 0; right: 0;
+   height: 3px;
+   z-index: -1;
+   background: linear-gradient(90deg, transparent, var(--teal) 25%, var(--accent) 75%, transparent);
+   opacity: .55;
+}
+
+/* Faint dot grid + blueprint lines, fading out towards the bottom */
+#projects::after {
+   content: "";
+   position: absolute;
+   inset: 0;
+   z-index: -1;
+   pointer-events: none;
+   background-image:
+      radial-gradient(rgba(11,36,68,.11) 1px, transparent 1.5px),
+      linear-gradient(rgba(17,171,176,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17,171,176,.06) 1px, transparent 1px);
+   background-size: 32px 32px, 128px 128px, 128px 128px;
+   background-position: 0 0, -1px -1px, -1px -1px;
+   -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.45) 40%, transparent 85%);
+           mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.45) 40%, transparent 85%);
+}
+
+.projects-lead {
+   font-size: 17px;
+   color: var(--muted);
+   margin-bottom: 40px;
+}
+
+.projects-grid {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 24px;
+}
+
+.project-card {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   background: rgba(255,255,255,.85);
+   border: 1px solid rgba(11,36,68,.08);
+   border-radius: 16px;
+   padding: 24px;
+   overflow: hidden;
+   box-shadow: 0 10px 30px -18px rgba(11,36,68,.35);
+   -webkit-backdrop-filter: blur(4px);
+           backdrop-filter: blur(4px);
+}
+/* Logo-gradient strip along the top edge: always on for the featured card, slides in on hover for the rest */
+.project-card::before {
+   content: "";
+   position: absolute;
+   top: 0; left: 0; right: 0;
+   height: 3px;
+   background: linear-gradient(90deg, var(--teal), var(--accent));
+   transform: scaleX(0);
+   transform-origin: left;
+   transition: transform .35s ease;
+}
+.project-card:hover::before,
+.project-card-featured::before { transform: scaleX(1); }
+
+/* Keep the reveal fade, and add a gentle lift on hover */
+.project-card.reveal {
+   transition: opacity .6s ease, transform .6s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.project-card.in-view:hover {
+   transform: translateY(-3px);
+   border-color: rgba(17,171,176,.3);
+   box-shadow: 0 18px 36px -20px rgba(11,36,68,.45);
+}
+@media (prefers-reduced-motion: reduce) {
+   .project-card.reveal { transition: none; }
+   .project-card.in-view:hover { transform: none; }
+   .project-card::before { transition: none; }
+}
+
+.project-card-featured {
+   grid-column: span 2;
+   background:
+      radial-gradient(ellipse 60% 80% at 100% 0%, rgba(17,171,176,.08), transparent 70%),
+      rgba(255,255,255,.9);
+}
+
+.project-card-top {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 12px;
+   margin-bottom: 16px;
+}
+
+.project-icon {
+   flex-shrink: 0;
+   width: 40px;
+   height: 40px;
+   border-radius: 12px;
+   background: linear-gradient(135deg, rgba(17,171,176,.18), rgba(240,96,0,.16));
+   box-shadow: inset 0 0 0 1px rgba(11,36,68,.05);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 19px;
+}
+
+.project-status {
+   font-size: 11.5px;
+   font-weight: 700;
+   letter-spacing: .4px;
+   text-transform: uppercase;
+   padding: 4px 10px;
+   border-radius: 999px;
+}
+.project-status-live {
+   color: #0B8286;
+   background: rgba(17,171,176,.12);
+}
+.project-status-wip {
+   color: #C04D00;
+   background: rgba(240,96,0,.10);
+}
+
+.project-card h3 {
+   font-size: 18px;
+   margin-bottom: 8px;
+   color: var(--ink);
+}
+
+.project-desc {
+   font-size: 14.5px;
+   color: var(--muted);
+   margin-bottom: 18px;
+}
+
+.project-tags {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 8px;
+   margin-bottom: 20px;
+}
+.project-tags li {
+   display: flex;
+   align-items: center;
+   gap: 6px;
+   font-size: 12.5px;
+   padding: 5px 11px;
+   border-radius: 999px;
+   background: rgba(11,36,68,.05);
+   color: var(--ink);
+}
+
+/* Pushed to the bottom so link rows line up across cards of different lengths */
+.project-links {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+   margin-top: auto;
+   padding-top: 16px;
+   border-top: 1px dashed var(--border);
+}
+.project-links a {
+   display: inline-flex;
+   align-items: center;
+   gap: 7px;
+   font-size: 13px;
+   font-weight: 600;
+   padding: 6px 14px;
+   border-radius: 999px;
+   border: 1px solid rgba(11,36,68,.12);
+   color: var(--ink);
+   transition: border-color .2s ease, color .2s ease, background .2s ease;
+}
+.project-links a svg { width: 14px; height: 14px; }
+.project-links a:hover {
+   border-color: var(--accent);
+   background: var(--accent);
+   color: var(--white);
+}
+
+/* "More on GitHub": a dashed, open-ended card that invites a click */
+.project-card-more {
+   grid-column: span 2;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   background: transparent;
+   border: 2px dashed rgba(11,36,68,.14);
+   box-shadow: none;
+   -webkit-backdrop-filter: none;
+           backdrop-filter: none;
+}
+.project-card-more .project-icon { margin-bottom: 14px; }
+.project-card-more .project-desc { margin-bottom: 12px; }
+.project-more-cta {
+   font-size: 13px;
+   font-weight: 700;
+   color: var(--accent);
+}
+.project-card-more.in-view:hover {
+   border-color: var(--accent);
+   box-shadow: none;
+}
+.project-card-more::before { display: none; }
+
+/* ------------------------------------------------------------------ */
 /* Footer                                                              */
 /* ------------------------------------------------------------------ */
 
@@ -865,6 +1092,10 @@ img { max-width: 100%; }
    .skill-notes {
       grid-template-columns: 1fr;
    }
+   .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+   }
+   .project-card-more { grid-column: auto; }
    .about-grid {
       display: flex;
       flex-direction: column;
@@ -922,6 +1153,13 @@ img { max-width: 100%; }
    }
    #skills::before { left: -120px; top: 20px; }
    #skills::after  { right: -120px; bottom: 20px; }
+
+   .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+   }
+   .project-card-featured { grid-column: auto; }
+   .project-card { padding: 20px; }
 
    .timeline { padding-left: 46px; }
    .timeline::before { left: 17px; }

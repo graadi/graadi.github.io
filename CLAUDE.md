@@ -12,10 +12,10 @@ There is no build/lint/test tooling in this repo. To preview changes locally, ju
 
 ## Architecture
 
-The entire site is one page (`index.html`) with fixed nav + scrollspy behavior, split into anchor-linked `<section>`s in this order: hero (`#home`) → About Me (`#about`) → Career Timeline (`#timeline`) → Skills (`#skills`) → footer. Nav links, `data-section` attributes, and section `id`s must stay in sync for the scrollspy/smoothscroll logic in `js/main.js` to keep working.
+The entire site is one page (`index.html`) with fixed nav + scrollspy behavior, split into anchor-linked `<section>`s in this order: hero (`#home`) → About Me (`#about`) → Career Timeline (`#timeline`) → Skills (`#skills`) → Projects (`#projects`) → footer. Nav links, `data-section` attributes, and section `id`s must stay in sync for the scrollspy/smoothscroll logic in `js/main.js` to keep working.
 
 - **`js/main.js`**: a single self-invoking function (no modules/bundler) handling: mobile nav toggle, scroll-driven nav background + progress bar + active-link highlighting (via `data-section` attribute matching), and scroll-reveal animations (`IntersectionObserver` adding `.in-view` to any `.reveal` element). Any new section content that should fade in on scroll just needs the `reveal` class; the observer picks it up automatically.
-- **`css/style.css`**: single stylesheet organized into clearly delimited banner-comment blocks in this order: Scroll reveal, Progress bar + Nav, Hero, Sections, About, Timeline, Skills, Footer, Responsive. Theme values (colors, fonts, max-widths) are centralized as CSS custom properties in `:root`. Follow the existing 3-space indentation and keep new rules under the matching section banner (or add a new one) rather than appending ad hoc styles at the end of the file.
+- **`css/style.css`**: single stylesheet organized into clearly delimited banner-comment blocks in this order: Scroll reveal, Progress bar + Nav, Hero, Sections, About, Timeline, Skills, Projects, Footer, Responsive. Theme values (colors, fonts, max-widths) are centralized as CSS custom properties in `:root`. Follow the existing 3-space indentation and keep new rules under the matching section banner (or add a new one) rather than appending ad hoc styles at the end of the file.
 - **`images/`**: favicon plus `logos/` for employer logos referenced from the Career Timeline entries.
 
 ## Content conventions

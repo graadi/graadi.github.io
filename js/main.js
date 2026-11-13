@@ -36,6 +36,10 @@
             activeId = section.id;
          }
       });
+      /* At the very bottom the last section may be too short to reach the threshold */
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+         activeId = sectionList[sectionList.length - 1].id;
+      }
       navAnchors.forEach(function (a) {
          a.classList.toggle("active", a.getAttribute("data-section") === activeId);
       });
