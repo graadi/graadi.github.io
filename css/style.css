@@ -18,13 +18,17 @@
    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
    --max-width: 880px;
    --max-width-wide: 1180px;
+
+   /* Height of the solid (scrolled) nav: 12px padding + 38px logo + 12px padding */
+   --nav-height: 62px;
 }
 
 * , *::before, *::after { box-sizing: border-box; }
 
 html {
    scroll-behavior: smooth;
-   scroll-padding-top: 70px;
+   /* Land sections 2px under the nav so no sliver of the previous section shows above them */
+   scroll-padding-top: calc(var(--nav-height) - 2px);
 }
 
 body {
