@@ -59,6 +59,28 @@
    window.addEventListener("resize", updateActiveNav);
    onScroll();
 
+   /* Collapsible timeline details: progressive enhancement, so content stays open without JS */
+   document.querySelectorAll(".fold-toggle").forEach(function (toggle) {
+      var panel = document.getElementById(toggle.getAttribute("aria-controls"));
+      var label = toggle.querySelector(".fold-toggle-text");
+      if (!panel) { return; }
+
+      function setExpanded(expanded) {
+         toggle.setAttribute("aria-expanded", expanded);
+         panel.classList.toggle("is-collapsed", !expanded);
+         if (label) {
+            label.textContent = label.getAttribute(expanded ? "data-open" : "data-closed");
+         }
+      }
+
+      toggle.addEventListener("click", function () {
+         setExpanded(toggle.getAttribute("aria-expanded") !== "true");
+      });
+
+      setExpanded(false);
+      toggle.hidden = false;
+   });
+
    var revealObserver = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
          if (entry.isIntersecting) {

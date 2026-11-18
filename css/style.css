@@ -677,8 +677,105 @@ img { max-width: 100%; }
    margin-bottom: 10px;
 }
 
+/* Fold: collapsible role details. The toggle is a pill with a gradient
+   chevron badge (teal → orange, matching the seams) plus a small summary
+   of what's inside. The panel animates its height via the grid 0fr → 1fr
+   trick, so no JS height measuring is needed. Without JS the toggle stays
+   hidden and the details remain open. */
+.fold-toggle {
+   display: inline-flex;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 6px 10px;
+   max-width: 100%;
+   margin-top: 16px;
+   padding: 6px 16px 6px 6px;
+   font: inherit;
+   font-size: 13px;
+   font-weight: 700;
+   letter-spacing: .2px;
+   color: var(--navy);
+   text-align: left;
+   background: rgba(255,255,255,.75);
+   border: 1px solid rgba(17,171,176,.35);
+   border-radius: 999px;
+   box-shadow: 0 6px 18px -14px rgba(11,36,68,.5);
+   cursor: pointer;
+   transition: border-color .25s ease, box-shadow .25s ease, background-color .25s ease;
+}
+.fold-toggle[hidden] { display: none; }
+.fold-toggle:hover {
+   border-color: rgba(240,96,0,.55);
+   background: var(--white);
+   box-shadow: 0 10px 24px -14px rgba(240,96,0,.55);
+}
+.fold-toggle:focus-visible {
+   outline: 2px solid var(--teal);
+   outline-offset: 3px;
+}
+
+.fold-toggle-icon {
+   flex-shrink: 0;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   width: 26px;
+   height: 26px;
+   border-radius: 50%;
+   color: var(--white);
+   background: linear-gradient(135deg, var(--teal), var(--accent));
+   transition: transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.fold-toggle-icon svg {
+   width: 15px;
+   height: 15px;
+}
+.fold-toggle:hover .fold-toggle-icon { transform: scale(1.08); }
+.fold-toggle[aria-expanded="true"] .fold-toggle-icon { transform: rotate(180deg); }
+.fold-toggle[aria-expanded="true"]:hover .fold-toggle-icon { transform: rotate(180deg) scale(1.08); }
+
+.fold-toggle-meta {
+   padding-left: 10px;
+   border-left: 1px solid var(--border);
+   font-size: 12px;
+   font-weight: 600;
+   color: var(--muted);
+}
+.fold-toggle-meta > span { white-space: nowrap; }
+
+.fold {
+   display: grid;
+   grid-template-rows: 1fr;
+   opacity: 1;
+   visibility: visible;
+   transition:
+      grid-template-rows .45s cubic-bezier(.2,.7,.2,1),
+      opacity .35s ease .05s,
+      visibility 0s;
+}
+.fold-inner {
+   min-height: 0;
+   overflow: hidden;
+   transform: none;
+   transition: transform .45s cubic-bezier(.2,.7,.2,1);
+}
+.fold.is-collapsed {
+   grid-template-rows: 0fr;
+   opacity: 0;
+   visibility: hidden;
+   transition:
+      grid-template-rows .4s cubic-bezier(.2,.7,.2,1),
+      opacity .2s ease,
+      visibility 0s linear .4s;
+}
+.fold.is-collapsed .fold-inner { transform: translateY(-10px); }
+
+@media (prefers-reduced-motion: reduce) {
+   .fold, .fold.is-collapsed, .fold-inner, .fold-toggle-icon { transition: none; }
+}
+
 /* ------------------------------------------------------------------ */
-/* Skills                                                              */
+/* Skills                                                            */
 /* ------------------------------------------------------------------ */
 
 /* "Workbench": back to the dark of the hero, with the same teal/orange glows
@@ -1173,4 +1270,18 @@ img { max-width: 100%; }
       height: 36px;
       font-size: 16px;
    }
+}
+
+@media (max-width: 400px) {
+   /* Narrow phones: drop the summary under the label instead of squeezing it */
+   .fold-toggle { border-radius: 18px; }
+   .fold-toggle-meta {
+      flex-basis: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 0 0 2px 36px;
+      border-left: none;
+   }
+   .fold-toggle-sep { display: none; }
 }
