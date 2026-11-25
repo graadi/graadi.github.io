@@ -520,6 +520,27 @@ img { max-width: 100%; }
    margin: 0;
 }
 
+/* Languages: each code sits directly above its proficiency, in columns
+   divided by hairlines, so the pairs read as one unit */
+.lang-list {
+   display: flex;
+   align-items: flex-start;
+}
+.lang-list li {
+   display: flex;
+   flex-direction: column;
+   gap: 2px;
+   padding: 0 14px;
+   border-left: 1px solid var(--border);
+}
+.lang-list li:first-child {
+   padding-left: 0;
+   border-left: none;
+}
+.lang-list li:last-child { padding-right: 0; }
+.lang-list .credential-title { letter-spacing: .6px; }
+.lang-list .credential-sub { line-height: 1.4; }
+
 /* ------------------------------------------------------------------ */
 /* Timeline                                                            */
 /* ------------------------------------------------------------------ */
