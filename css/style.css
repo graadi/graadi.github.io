@@ -507,7 +507,8 @@ img { max-width: 100%; }
    border-left: 1px solid var(--border);
 }
 .credential:first-child { border-left: none; }
-.credential-icon { font-size: 22px; line-height: 1; }
+/* margin-top nudges the emoji down so it centres on the title's capitals */
+.credential-icon { font-size: 22px; line-height: 1; margin-top: 2px; }
 .credential-title {
    font-weight: 700;
    font-size: 14px;
