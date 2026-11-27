@@ -725,6 +725,32 @@ img { max-width: 100%; }
    padding-top: 16px;
    border-top: 1px dashed var(--border);
 }
+/* A highlights block opening a fold needs no divider above it */
+.fold-inner > .timeline-achievements:first-child {
+   border-top: none;
+   padding-top: 0;
+}
+
+/* Key modules: light-theme take on the Skills section's pill tags */
+.module-tags {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 8px;
+   margin-top: 12px;
+}
+.module-tags li {
+   display: flex;
+   align-items: center;
+   gap: 6px;
+   font-size: 12.5px;
+   font-weight: 600;
+   padding: 6px 12px;
+   border: 1px solid var(--border);
+   border-radius: 999px;
+   background: var(--white);
+   color: var(--navy);
+}
+
 .timeline-achievements .label {
    font-size: 12px;
    font-weight: 700;
