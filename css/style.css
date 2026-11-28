@@ -901,42 +901,133 @@ img { max-width: 100%; }
    opacity: .22;
 }
 
-.skills-grid {
-   columns: 3 250px;
-   column-gap: 22px;
+/* Legend for the colour-coded pills below */
+.skill-legend {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 8px 20px;
+   margin: -18px 0 30px;
+   font-size: 12.5px;
+   font-weight: 600;
+   color: rgba(255,255,255,.6);
+}
+.skill-legend li {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+}
+.skill-legend li::before {
+   content: "";
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   background: var(--teal);
+   box-shadow: 0 0 0 3px rgba(17,171,176,.2);
+}
+.skill-legend .is-lang::before {
+   background: var(--accent);
+   box-shadow: 0 0 0 3px rgba(240,96,0,.2);
+}
+.skill-legend .is-practice::before {
+   background: var(--muted-light);
+   box-shadow: 0 0 0 3px rgba(169,173,178,.2);
 }
 
+/* "Bento board": an asymmetric grid read row by row in the owner's chosen
+   order. Programming is the feature tile, DevOps runs wide so its long list
+   stays short, and Social Skills closes the board. Tablet and mobile
+   layouts live in the Responsive block. */
+.skills-grid {
+   display: grid;
+   grid-template-columns: repeat(4, minmax(0, 1fr));
+   grid-template-areas:
+      "programming programming backend  microservices"
+      "persistence interchange testing  testing"
+      "frontend    devops      devops   agile"
+      "social      social      social   social";
+   gap: 18px;
+}
+.skill-devops        { grid-area: devops; }
+.skill-programming   { grid-area: programming; }
+.skill-backend       { grid-area: backend; }
+.skill-testing       { grid-area: testing; }
+.skill-interchange   { grid-area: interchange; }
+.skill-persistence   { grid-area: persistence; }
+.skill-microservices { grid-area: microservices; }
+.skill-frontend      { grid-area: frontend; }
+.skill-agile         { grid-area: agile; }
+.skill-social        { grid-area: social; }
+
 .skill-card {
-   background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+   position: relative;
+   overflow: hidden;
+   background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
    border: 1px solid rgba(255,255,255,.09);
-   border-radius: 16px;
+   border-radius: 18px;
    padding: 22px;
-   break-inside: avoid;
-   margin-bottom: 22px;
    box-shadow: 0 18px 40px -28px rgba(0,0,0,.8);
    -webkit-backdrop-filter: blur(6px);
            backdrop-filter: blur(6px);
 }
-/* Keep the reveal fade, and add a gentle lift + teal edge on hover */
+/* Top edge: the same teal → orange seam used between sections */
+.skill-card::before {
+   content: "";
+   position: absolute;
+   top: 0; left: 0; right: 0;
+   height: 2px;
+   background: linear-gradient(90deg, var(--teal), var(--accent));
+   opacity: .45;
+   transition: opacity .25s ease;
+}
+.skill-card-feature {
+   background:
+      radial-gradient(ellipse 70% 60% at 0% 0%, rgba(17,171,176,.14), transparent 70%),
+      radial-gradient(ellipse 60% 50% at 100% 100%, rgba(240,96,0,.1), transparent 70%),
+      linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+   padding: 28px;
+}
+
+/* Large faded emoji in the bottom-right corner */
+.skill-watermark {
+   position: absolute;
+   right: -10px;
+   bottom: -18px;
+   font-size: 96px;
+   line-height: 1;
+   opacity: .07;
+   filter: grayscale(1);
+   transform: rotate(-12deg);
+   pointer-events: none;
+   transition: opacity .4s ease, transform .4s ease;
+}
+.skill-card-feature .skill-watermark {
+   font-size: 190px;
+   right: -14px;
+   bottom: -34px;
+}
+
+/* Keep the reveal fade, and add a lift + teal glow on hover */
 .skill-card.reveal {
-   transition: opacity .6s ease, transform .6s ease, border-color .25s ease, background .25s ease;
+   transition: opacity .6s ease, transform .6s ease, border-color .25s ease, box-shadow .25s ease;
 }
 .skill-card.in-view:hover {
    transform: translateY(-3px);
-   border-color: rgba(17,171,176,.38);
-   background: linear-gradient(160deg, rgba(17,171,176,.09), rgba(255,255,255,.03));
+   border-color: rgba(17,171,176,.4);
+   box-shadow: 0 22px 44px -26px rgba(0,0,0,.85), 0 0 0 1px rgba(17,171,176,.15), 0 0 36px -10px rgba(17,171,176,.35);
 }
-@media (prefers-reduced-motion: reduce) {
-   .skill-card.reveal { transition: none; }
-   .skill-card.in-view:hover { transform: none; }
+.skill-card:hover::before { opacity: 1; }
+.skill-card:hover .skill-watermark {
+   opacity: .12;
+   transform: rotate(-6deg) scale(1.05);
 }
 
 .skill-card-header {
+   position: relative;
    display: flex;
    align-items: center;
    gap: 12px;
    margin-bottom: 16px;
-   padding-bottom: 14px;
+   padding: 0 52px 14px 0;
    border-bottom: 1px solid rgba(255,255,255,.09);
 }
 .skill-card-header h3 {
@@ -944,6 +1035,7 @@ img { max-width: 100%; }
    margin: 0;
    color: var(--white);
 }
+.skill-card-feature .skill-card-header h3 { font-size: 20px; }
 
 .skill-icon {
    flex-shrink: 0;
@@ -957,45 +1049,125 @@ img { max-width: 100%; }
    justify-content: center;
    font-size: 16px;
 }
+.skill-card-feature .skill-icon {
+   width: 44px;
+   height: 44px;
+   border-radius: 12px;
+   font-size: 21px;
+}
 
+/* Pills, colour-coded: teal for frameworks & tools (default), orange for
+   languages, grey for practices. --i staggers the hover "current". */
 .skill-tags {
    display: flex;
    flex-wrap: wrap;
    gap: 8px;
+   counter-reset: skills;
 }
 .skill-tags li {
+   --pill: 17,171,176;
+   counter-increment: skills;
    display: flex;
    align-items: center;
    gap: 6px;
    font-size: 12.5px;
-   padding: 6px 12px;
-   border-radius: 999px;
-   background: rgba(255,255,255,.06);
+   padding: 5px 11px;
+   border-radius: 16px; /* full pill on one line, soft rectangle if it wraps */
+   border: 1px solid rgba(var(--pill), .38);
+   background: rgba(var(--pill), .12);
    color: rgba(255,255,255,.85);
+   transition: background .3s ease, border-color .3s ease, color .3s ease;
+   transition-delay: calc(var(--i, 0) * 35ms);
+}
+.skill-tags li.is-lang     { --pill: 240,96,0; }
+.skill-tags li.is-practice { --pill: 169,173,178; }
+.skill-card:hover .skill-tags li {
+   background: rgba(var(--pill), .24);
+   border-color: rgba(var(--pill), .75);
+   color: var(--white);
+}
+.skill-tags li:nth-child(2)  { --i: 1; }
+.skill-tags li:nth-child(3)  { --i: 2; }
+.skill-tags li:nth-child(4)  { --i: 3; }
+.skill-tags li:nth-child(5)  { --i: 4; }
+.skill-tags li:nth-child(6)  { --i: 5; }
+.skill-tags li:nth-child(7)  { --i: 6; }
+.skill-tags li:nth-child(8)  { --i: 7; }
+.skill-tags li:nth-child(9)  { --i: 8; }
+.skill-tags li:nth-child(10) { --i: 9; }
+.skill-tags li:nth-child(11) { --i: 10; }
+.skill-tags li:nth-child(12) { --i: 11; }
+.skill-tags li:nth-child(13) { --i: 12; }
+.skill-tags li:nth-child(14) { --i: 13; }
+.skill-card-feature .skill-tags { gap: 10px; }
+.skill-card-feature .skill-tags li {
+   font-size: 14px;
+   padding: 7px 14px;
 }
 
-.skill-card-wide {
-   column-span: all;
-   margin-top: 22px;
-}
-.skill-notes {
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   gap: 10px 32px;
-}
-.skill-notes li {
-   position: relative;
-   padding-left: 16px;
-   font-size: 14px;
-   line-height: 1.6;
-   color: rgba(255,255,255,.75);
-}
-.skill-notes li::before {
-   content: "–";
+/* Count: a CSS counter totals the pills, shown top-right in gradient
+   numerals, so it never drifts out of sync with the list. */
+.skill-tags::after {
+   content: counter(skills, decimal-leading-zero);
    position: absolute;
-   left: 0;
-   color: var(--accent);
-   font-weight: 700;
+   top: 20px;
+   right: 22px;
+   font-size: 28px;
+   font-weight: 800;
+   line-height: 1;
+   letter-spacing: -1px;
+   background: linear-gradient(135deg, var(--teal), var(--accent));
+   -webkit-background-clip: text;
+           background-clip: text;
+   color: transparent;
+   opacity: .75;
+}
+.skill-card-feature .skill-tags::after {
+   top: 26px;
+   right: 28px;
+   font-size: 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .skill-card.reveal,
+   .skill-watermark,
+   .skill-tags li { transition: none; }
+   .skill-card.in-view:hover,
+   .skill-card:hover .skill-watermark { transform: none; }
+}
+
+/* Social Skills: four "values" tiles */
+.skill-values {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 12px;
+}
+.skill-values li {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   padding: 16px;
+   border-radius: 14px;
+   background: rgba(255,255,255,.04);
+   border: 1px solid rgba(255,255,255,.07);
+   font-size: 13.5px;
+   line-height: 1.55;
+   color: rgba(255,255,255,.75);
+   transition: border-color .25s ease, background .25s ease;
+}
+.skill-values li:hover {
+   border-color: rgba(240,96,0,.4);
+   background: rgba(240,96,0,.06);
+}
+.skill-value-icon {
+   width: 32px;
+   height: 32px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 16px;
+   background: linear-gradient(135deg, rgba(17,171,176,.22), rgba(240,96,0,.2));
 }
 
 /* ------------------------------------------------------------------ */
@@ -1273,9 +1445,21 @@ img { max-width: 100%; }
 /* ------------------------------------------------------------------ */
 
 @media (max-width: 900px) {
-   .skill-notes {
-      grid-template-columns: 1fr;
+   /* Skills bento: two columns, feature and wide tiles span both */
+   .skills-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-areas:
+         "programming programming"
+         "backend     microservices"
+         "persistence interchange"
+         "testing     testing"
+         "frontend    frontend"
+         "devops      devops"
+         "agile       agile"
+         "social      social";
    }
+   /* Values tiles: a 2 × 2 grid rather than 3 + 1 */
+   .skill-values { grid-template-columns: repeat(2, minmax(0, 1fr)); }
    .projects-grid {
       grid-template-columns: repeat(2, 1fr);
    }
@@ -1337,6 +1521,20 @@ img { max-width: 100%; }
    }
    #skills::before { left: -120px; top: 20px; }
    #skills::after  { right: -120px; bottom: 20px; }
+
+   /* Skills bento: a single column, following the markup order */
+   .skills-grid {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas: none;
+      gap: 14px;
+   }
+   .skills-grid > .skill-card { grid-area: auto; }
+   .skill-card-feature { padding: 22px; }
+   .skill-card-feature .skill-card-header h3 { font-size: 17px; }
+   .skill-card-feature .skill-tags li { font-size: 13px; padding: 6px 12px; }
+   .skill-card-feature .skill-tags::after { top: 22px; right: 22px; font-size: 34px; }
+   .skill-card-feature .skill-watermark { font-size: 130px; }
+   .skill-values { grid-template-columns: minmax(0, 1fr); }
 
    .projects-grid {
       grid-template-columns: 1fr;
